@@ -1,0 +1,203 @@
+/* DEFAULT SKIN (override in another file to create new skins)
+================================================================================
+Instead of editing this file, I recommend creating your own skin CSS file to be included after this file,
+so you can upgrade to newer versions easier. You can remove all these styles by removing the 'vjs-default-skin' class from the tag. */
+
+/* The default control bar. Created by bar.js */
+.vjs-lrxd-skin .vjs-controls {
+  position: absolute;
+  bottom: 0; /* Distance from the bottom of the box/video. Keep 0. Use height to add more bottom margin. */
+  left: 0; right: 0; /* 100% width of div */
+  margin: 0; padding: 0; /* Controls are absolutely position, so no padding necessary */
+  height: 4px; /* Including any margin you want above or below control items */
+
+  /* CSS Gradient */
+  /* Can use the Ultimate CSS Gradient Generator: http://www.colorzilla.com/gradient-editor/ */
+  background: #000; /* Old browsers */
+  /* Start hidden and with 0 opacity. Opacity is used to fade in modern browsers. */
+  /* Can't use display block to hide initially because widths of slider handles aren't calculated and avaialbe for positioning correctly. */
+  opacity: 1;
+}
+
+/* General styles for individual controls. */
+.vjs-lrxd-skin .vjs-control {
+  position: relative; float: left;
+  text-align: center; margin: 0; padding: 0;
+  height: 2.6em; width: 2.6em;
+}
+
+.vjs-lrxd-skin .vjs-control:focus {
+  /*  outline: 0; */ /* keyboard-only users cannot see the focus on several of the UI elements when this is set to 0 */
+/*  background-color: #555;*/
+}
+
+/* Hide control text visually, but have it available for screenreaders: h5bp.com/v */
+.vjs-lrxd-skin .vjs-control-text { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+
+/* Play/Pause
+-------------------------------------------------------------------------------- */
+.vjs-lrxd-skin .vjs-play-control { width: 5em; cursor: pointer !important; }
+/* Play Icon */
+.vjs-lrxd-skin.vjs-paused .vjs-play-control div { width: 15px; height: 17px; background: url('../img/video_player_play.png'); margin: 0.5em auto 0; }
+.vjs-lrxd-skin.vjs-playing .vjs-play-control div { width: 15px; height: 17px; background: url('../img/video_player_pause.png') -25px 0; margin: 0.5em auto 0; }
+
+/* Rewind
+-------------------------------------------------------------------------------- */
+.vjs-lrxd-skin .vjs-rewind-control { 
+  display:none;
+  width: 5em; cursor: pointer !important;
+}
+.vjs-lrxd-skin .vjs-rewind-control div { width: 19px; height: 16px; background: url('video-js.png'); margin: 0.5em auto 0; }
+
+/* Volume/Mute
+-------------------------------------------------------------------------------- */
+.vjs-lrxd-skin .vjs-mute-control { display:none; width: 3.8em; cursor: pointer !important; float: right; }
+.vjs-lrxd-skin .vjs-mute-control div { width: 22px; height: 16px; background: url('video-js.png') -75px -25px; margin: 0.5em auto 0; }
+.vjs-lrxd-skin .vjs-mute-control.vjs-vol-0 div { background: url('video-js.png') 0 -25px; }
+.vjs-lrxd-skin .vjs-mute-control.vjs-vol-1 div { background: url('video-js.png') -25px -25px; }
+.vjs-lrxd-skin .vjs-mute-control.vjs-vol-2 div { background: url('video-js.png') -50px -25px; }
+
+
+.vjs-lrxd-skin .vjs-volume-control { display:none; width: 5em; float: right; }
+.vjs-lrxd-skin .vjs-volume-bar {
+  display:none; position: relative; width: 5em; height: 0.6em; margin: 1em auto 0; cursor: pointer !important;
+
+  -moz-border-radius: 0.3em; -webkit-border-radius: 0.3em; border-radius: 0.3em;
+
+  background: #666;
+  background: -moz-linear-gradient(top, #333, #666);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#666));
+  background: -webkit-linear-gradient(top, #333, #666);
+  background: -o-linear-gradient(top, #333, #666);
+  background: -ms-linear-gradient(top, #333, #666);
+  background: linear-gradient(top, #333, #666);
+}
+.vjs-lrxd-skin .vjs-volume-level {
+  position: absolute; top: 0; left: 0; height: 0.6em;
+
+  -moz-border-radius: 0.3em; -webkit-border-radius: 0.3em; border-radius: 0.3em;
+
+  background: #fff;
+  background: -moz-linear-gradient(top, #fff, #ccc);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#ccc));
+  background: -webkit-linear-gradient(top, #fff, #ccc);
+  background: -o-linear-gradient(top, #fff, #ccc);
+  background: -ms-linear-gradient(top, #fff, #ccc);
+  background: linear-gradient(top, #fff, #ccc);
+}
+.vjs-lrxd-skin .vjs-volume-handle {
+  position: absolute; top: -0.2em; width: 0.8em; height: 0.8em; background: #ccc; left: 0;
+  border: 1px solid #fff;
+  -moz-border-radius: 0.6em; -webkit-border-radius: 0.6em; border-radius: 0.6em;
+}
+
+/* Progress
+-------------------------------------------------------------------------------- */
+.vjs-lrxd-skin div.vjs-progress-control {
+  position: absolute;
+  left: 0; right: 0; /* Leave room for time displays. */
+  height: 4px; width: auto;
+  top: 0; /* Set above the rest of the controls. And leave room for 2px of borders (progress bottom and controls top). */
+  /* 1px top shadow */
+/*  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15); box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15);*/
+}
+
+/* Box containing play and load progresses. Also acts as seek scrubber. */
+.vjs-lrxd-skin .vjs-progress-holder {
+
+  position: relative; cursor: pointer !important; /*overflow: hidden;*/
+  padding: 0; margin: 0; /* Placement within the progress control item */
+  height: 4px;
+  width:100%;
+  /* CSS Gradient */
+  background: transparent;
+}
+.vjs-lrxd-skin .vjs-progress-holder .vjs-play-progress,
+.vjs-lrxd-skin .vjs-progress-holder .vjs-load-progress { /* Progress Bars */
+  position: absolute; display: block; height: 1.0em; margin: 0; padding: 0;
+  left: 0; top: 0; /*Needed for IE6*/
+
+  /*width: 0;*/
+}
+
+.vjs-lrxd-skin .vjs-play-progress {
+  /* CSS Gradient. */
+  background: #ffc600;
+}
+.vjs-lrxd-skin .vjs-load-progress {
+  opacity: 1;
+  background: #666;
+}
+
+.vjs-lrxd-skin div.vjs-seek-handle {
+  position: absolute;
+  width: 16px; height: 16px; /* Match img pixles */
+  margin-top: -0.3em;
+  left: 0; top: 0; /*Needed for IE6*/
+}
+/* Time Display
+-------------------------------------------------------------------------------- */
+.vjs-lrxd-skin .vjs-time-controls {
+  display:none;
+  position: absolute;
+  right: 0;
+  height: 1.0em; width: 4.8em;
+  top: -1.3em;
+  border-bottom: 1px solid #1F1F1F;
+  border-top: 1px solid #222;
+  background-color: #333;
+
+  font-size: 1em; line-height: 1.0em; font-weight: normal; font-family: Helvetica, Arial, sans-serif;
+
+  background: #333;
+  background: -moz-linear-gradient(top, #222, #333);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#333));
+  background: -webkit-linear-gradient(top, #222, #333);
+  background: -o-linear-gradient(top, #333, #222);
+  background: -ms-linear-gradient(top, #333, #222);
+  background: linear-gradient(top, #333, #222);
+
+  /* 1px top shadow */
+/*  -webkit-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15); -moz-box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15); box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.15);*/
+}
+
+.vjs-lrxd-skin .vjs-current-time { left: 0; display:none; }
+
+.vjs-lrxd-skin .vjs-duration { right: 0; display: none; }
+.vjs-lrxd-skin .vjs-remaining-time { right: 0; }
+
+.vjs-time-divider { display:none; }
+
+.vjs-lrxd-skin .vjs-time-control { font-size: 1em; line-height: 1; font-weight: normal; font-family: Helvetica, Arial, sans-serif; }
+.vjs-lrxd-skin .vjs-time-control span { line-height: 25px; /* Centering vertically */ }
+
+/* Fullscreen
+-------------------------------------------------------------------------------- */
+.vjs-secondary-controls { float: right; display:none; }
+
+.vjs-lrxd-skin .vjs-fullscreen-control { display:none; width: 3.8em; cursor: pointer !important; float: right; }
+.vjs-lrxd-skin .vjs-fullscreen-control div { width: 16px; height: 16px; background: url('video-js.png') -50px 0; margin: 0.5em auto 0; }
+
+.vjs-lrxd-skin.vjs-fullscreen .vjs-fullscreen-control div { background: url('video-js.png') -75px 0; }
+
+
+/* Big Play Button (at start)
+---------------------------------------------------------*/
+.vjs-lrxd-skin .vjs-big-play-button {
+ display: none;
+  z-index: 2;
+  background: #ffc600 url('../img/video_player_play.png');
+  position: absolute; top: 50%; left: 50%; width: 73px; height: 73px; margin: -36px 0 0 -36px; text-align: center; vertical-align: center; cursor: pointer !important;
+}
+
+.vjs-lrxd-skin div.vjs-big-play-button:hover, .vjs-lrxd-skin div.vjs-big-play-button:focus {
+  
+}
+
+.vjs-lrxd-skin div.vjs-big-play-button span {
+  position: absolute; top: 0; left: 0;
+  display: block; width: 73px; height: 73px;
+  /*background: url('video-js.png') -100px 0;*/
+  background: url('../img/video_player_play.png');
+}
